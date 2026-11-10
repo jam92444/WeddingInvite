@@ -1,1039 +1,159 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Falak Weds Asif | Nikah Invitation</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
-
-<style>
-  :root{
-    --night:#120d09;
-    --night-2:#1d1610;
-    --gold:#d3af6d;
-    --gold-soft:#e9d3a3;
-    --gold-deep:#9a7638;
-    --ivory:#f7efe1;
-    --rose:#d8a3a3;
-    --text:#f3e7d2;
-    --muted:#cfc0a8;
-  }
-
-  *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-  }
-
-  html{
-    scroll-behavior:smooth;
-  }
-
-  body{
-    font-family:'Poppins',sans-serif;
-    color:var(--text);
-    background:var(--night);
-    overflow-x:hidden;
-    line-height:1.7;
-  }
-
-  /* Entrance */
-  #gate{
-    position:fixed;
-    inset:0;
-    z-index:2000;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:25px;
-    background:
-      radial-gradient(circle at 50% 25%,rgba(211,175,109,.18),transparent 45%),
-      radial-gradient(circle at 20% 80%,rgba(216,163,163,.10),transparent 45%),
-      linear-gradient(160deg,#0d0a07,#1d1610 50%,#312417);
-    transition:opacity 1.3s ease,visibility 1.3s;
-  }
-
-  #gate.hidden{
-    opacity:0;
-    visibility:hidden;
-  }
-
-  .gate-box{
-    max-width:640px;
-    width:100%;
-    padding:55px 30px;
-    border:1px solid rgba(211,175,109,.35);
-    background:rgba(255,255,255,.03);
-    backdrop-filter:blur(10px);
-    animation:gateIn 1.5s ease both;
-  }
-
-  @keyframes gateIn{
-    from{
-      opacity:0;
-      transform:scale(.94);
-    }
-    to{
-      opacity:1;
-      transform:scale(1);
-    }
-  }
-
-  .bismillah{
-    font-family:'Playfair Display',serif;
-    font-style:italic;
-    font-size:1.1rem;
-    color:var(--gold-soft);
-    letter-spacing:.12em;
-    margin-bottom:22px;
-  }
-
-  .gate-sub{
-    font-family:'Poppins',sans-serif;
-    font-weight:300;
-    letter-spacing:.4em;
-    text-transform:uppercase;
-    font-size:.72rem;
-    color:var(--muted);
-  }
-
-  .gate-title{
-    font-family:'Great Vibes',cursive;
-    font-size:clamp(3.5rem,11vw,5.8rem);
-    color:var(--gold);
-    line-height:1.1;
-    margin:18px 0;
-  }
-
-  .gate-names{
-    font-family:'Playfair Display',serif;
-    font-size:clamp(1.5rem,4.5vw,2.2rem);
-    font-weight:500;
-    color:var(--ivory);
-  }
-
-  .gate-date{
-    margin-top:16px;
-    font-family:'Poppins',sans-serif;
-    font-weight:300;
-    letter-spacing:.25em;
-    font-size:.85rem;
-    color:var(--gold-soft);
-  }
-
-  .enter-btn{
-    margin-top:40px;
-    padding:18px 48px;
-    border:1px solid rgba(211,175,109,.65);
-    background:transparent;
-    color:var(--gold-soft);
-    font-family:'Poppins',sans-serif;
-    font-weight:500;
-    letter-spacing:.25em;
-    text-transform:uppercase;
-    font-size:.75rem;
-    cursor:pointer;
-    transition:.35s;
-  }
-
-  .enter-btn:hover{
-    background:rgba(211,175,109,.15);
-    box-shadow:0 0 35px rgba(211,175,109,.25);
-  }
-
-  /* Background */
-  .bg-layer{
-    position:fixed;
-    inset:0;
-    z-index:0;
-    pointer-events:none;
-  }
-
-  .bg-gradient{
-    background:
-      radial-gradient(circle at 15% 20%,rgba(211,175,109,.16),transparent 38%),
-      radial-gradient(circle at 85% 75%,rgba(216,163,163,.12),transparent 40%),
-      linear-gradient(180deg,#100b08,#1a130d 45%,#241a11);
-  }
-
-  .vignette{
-    background:radial-gradient(circle at center,transparent 35%,rgba(0,0,0,.65) 100%);
-  }
-
-  .petal{
-    position:fixed;
-    top:-80px;
-    z-index:2;
-    pointer-events:none;
-    opacity:.55;
-    animation:fall linear infinite;
-  }
-
-  @keyframes fall{
-    0%{
-      transform:translate3d(0,-10vh,0) rotate(0);
-    }
-    100%{
-      transform:translate3d(var(--drift),115vh,0) rotate(820deg);
-    }
-  }
-
-  .spark{
-    position:fixed;
-    width:3px;
-    height:3px;
-    border-radius:50%;
-    background:var(--gold);
-    box-shadow:0 0 14px var(--gold);
-    opacity:.55;
-    animation:twinkle 5s ease-in-out infinite;
-    pointer-events:none;
-    z-index:2;
-  }
-
-  @keyframes twinkle{
-    0%,100%{
-      opacity:.1;
-      transform:scale(.6);
-    }
-    50%{
-      opacity:.95;
-      transform:scale(1.35);
-    }
-  }
-
-  /* Hero */
-  .hero{
-    position:relative;
-    z-index:3;
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:90px 24px;
-    overflow:hidden;
-  }
-
-  .hero-inner{
-    position:relative;
-    max-width:920px;
-    width:100%;
-    padding:70px 30px;
-  }
-
-  .hero-ring{
-    position:absolute;
-    top:50%;
-    left:50%;
-    width:min(88vw,680px);
-    aspect-ratio:1;
-    transform:translate(-50%,-50%);
-    border:1px solid rgba(211,175,109,.18);
-    border-radius:50%;
-    animation:ringPulse 7s ease-in-out infinite;
-  }
-
-  .hero-ring:nth-child(2){
-    width:min(72vw,540px);
-    animation-delay:-2s;
-  }
-
-  @keyframes ringPulse{
-    0%,100%{
-      transform:translate(-50%,-50%) scale(1);
-      opacity:.35;
-    }
-    50%{
-      transform:translate(-50%,-50%) scale(1.08);
-      opacity:.7;
-    }
-  }
-
-  .eyebrow{
-    font-family:'Poppins',sans-serif;
-    font-weight:300;
-    letter-spacing:.45em;
-    text-transform:uppercase;
-    font-size:.7rem;
-    color:var(--muted);
-    opacity:0;
-    animation:rise 1.4s .4s forwards;
-  }
-
-  h1{
-    font-family:'Great Vibes',cursive;
-    font-size:clamp(4.2rem,13vw,8rem);
-    color:var(--gold);
-    line-height:1.1;
-    margin:22px 0;
-    opacity:0;
-    animation:rise 1.8s .8s forwards;
-    text-shadow:0 0 45px rgba(211,175,109,.25);
-  }
-
-  .hero-names{
-    font-family:'Playfair Display',serif;
-    font-size:clamp(1.8rem,5.5vw,3.2rem);
-    font-weight:500;
-    color:var(--ivory);
-    opacity:0;
-    animation:rise 1.8s 1.4s forwards;
-  }
-
-  .amp{
-    font-family:'Great Vibes',cursive;
-    color:var(--gold);
-    margin:0 18px;
-  }
-
-  .hero-date{
-    margin-top:25px;
-    font-family:'Poppins',sans-serif;
-    font-weight:300;
-    letter-spacing:.3em;
-    font-size:.95rem;
-    color:var(--gold-soft);
-    opacity:0;
-    animation:rise 1.8s 1.9s forwards;
-  }
-
-  .hero-text{
-    max-width:700px;
-    margin:35px auto 0;
-    font-size:1.08rem;
-    line-height:2;
-    color:var(--muted);
-    opacity:0;
-    animation:rise 1.8s 2.4s forwards;
-  }
-
-  .host{
-    margin-top:28px;
-    font-size:1.05rem;
-    color:var(--gold-soft);
-    opacity:0;
-    animation:rise 1.8s 2.9s forwards;
-  }
-
-  .scroll{
-    margin-top:60px;
-    font-family:'Poppins',sans-serif;
-    font-weight:300;
-    font-size:.68rem;
-    letter-spacing:.35em;
-    text-transform:uppercase;
-    color:var(--muted);
-    animation:bounce 2.6s infinite;
-  }
-
-  @keyframes rise{
-    from{
-      opacity:0;
-      transform:translateY(45px);
-    }
-    to{
-      opacity:1;
-      transform:translateY(0);
-    }
-  }
-
-  @keyframes bounce{
-    0%,100%{
-      transform:translateY(0);
-    }
-    50%{
-      transform:translateY(10px);
-    }
-  }
-
-  /* Sections */
-  section{
-    position:relative;
-    z-index:3;
-    padding:120px 24px;
-    text-align:center;
-  }
-
-  .kicker{
-    font-family:'Poppins',sans-serif;
-    font-weight:300;
-    letter-spacing:.4em;
-    text-transform:uppercase;
-    font-size:.66rem;
-    color:var(--gold-soft);
-  }
-
-  h2{
-    font-family:'Great Vibes',cursive;
-    font-size:clamp(3rem,9vw,5rem);
-    color:var(--gold);
-    margin:14px 0;
-    text-shadow:0 0 35px rgba(211,175,109,.18);
-  }
-
-  .divider{
-    width:110px;
-    height:1px;
-    margin:20px auto 40px;
-    background:linear-gradient(90deg,transparent,var(--gold),transparent);
-  }
-
-  .lead{
-    max-width:740px;
-    margin:0 auto;
-    font-size:1.08rem;
-    line-height:2;
-    color:var(--muted);
-  }
-
-  .reveal{
-    opacity:0;
-    transform:translateY(60px);
-    transition:opacity 1.2s cubic-bezier(.2,.7,.2,1),transform 1.2s cubic-bezier(.2,.7,.2,1);
-  }
-
-  .reveal.visible{
-    opacity:1;
-    transform:translateY(0);
-  }
-
-  /* Countdown */
-  .countdown{
-    display:flex;
-    gap:16px;
-    justify-content:center;
-    flex-wrap:wrap;
-    margin-top:45px;
-  }
-
-  .time-box{
-    min-width:120px;
-    padding:28px 18px;
-    border:1px solid rgba(211,175,109,.28);
-    border-radius:20px;
-    background:rgba(255,255,255,.03);
-    backdrop-filter:blur(10px);
-    animation:floatBox 5s ease-in-out infinite;
-  }
-
-  .time-box:nth-child(2){
-    animation-delay:.5s;
-  }
-
-  .time-box:nth-child(3){
-    animation-delay:1s;
-  }
-
-  .time-box:nth-child(4){
-    animation-delay:1.5s;
-  }
-
-  .time-box span{
-    display:block;
-    font-family:'Poppins',sans-serif;
-    font-weight:500;
-    font-size:2.4rem;
-    color:var(--gold);
-  }
-
-  .time-box small{
-    font-family:'Poppins',sans-serif;
-    font-weight:300;
-    letter-spacing:.25em;
-    text-transform:uppercase;
-    font-size:.6rem;
-    color:var(--muted);
-  }
-
-  @keyframes floatBox{
-    0%,100%{
-      transform:translateY(0);
-    }
-    50%{
-      transform:translateY(-12px);
-    }
-  }
-
-  /* Couple */
-  .couple{
-    max-width:1080px;
-    margin:50px auto 0;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:24px;
-    text-align:left;
-  }
-
-  .couple-card{
-    position:relative;
-    padding:45px 35px;
-    border:1px solid rgba(211,175,109,.22);
-    background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.01));
-    border-radius:26px;
-    overflow:hidden;
-    transition:.45s;
-  }
-
-  .couple-card:hover{
-    transform:translateY(-8px);
-    border-color:rgba(211,175,109,.5);
-    box-shadow:0 30px 70px rgba(0,0,0,.35);
-  }
-
-  .couple-card:before{
-    content:"";
-    position:absolute;
-    top:-70px;
-    right:-70px;
-    width:180px;
-    height:180px;
-    border-radius:50%;
-    background:radial-gradient(circle,rgba(211,175,109,.18),transparent 70%);
-  }
-
-  .couple-card h3{
-    font-family:'Great Vibes',cursive;
-    font-size:3rem;
-    color:var(--gold);
-    margin-bottom:10px;
-  }
-
-  .couple-card .role{
-    font-family:'Poppins',sans-serif;
-    font-weight:300;
-    letter-spacing:.3em;
-    text-transform:uppercase;
-    font-size:.65rem;
-    color:var(--muted);
-  }
-
-  .couple-card p{
-    margin-top:20px;
-    line-height:1.9;
-    color:#d8c6a8;
-  }
-
-  /* Timeline */
-  .timeline{
-    max-width:820px;
-    margin:50px auto 0;
-    text-align:left;
-  }
-
-  .timeline-item{
-    position:relative;
-    padding:0 0 48px 50px;
-    border-left:1px solid rgba(211,175,109,.3);
-  }
-
-  .timeline-item:last-child{
-    border-left:0;
-    padding-bottom:0;
-  }
-
-  .timeline-item:before{
-    content:"";
-    position:absolute;
-    left:-7px;
-    top:7px;
-    width:13px;
-    height:13px;
-    border-radius:50%;
-    background:var(--gold);
-    box-shadow:0 0 0 7px rgba(211,175,109,.13),0 0 22px rgba(211,175,109,.45);
-  }
-
-  .timeline-time{
-    font-family:'Poppins',sans-serif;
-    font-weight:300;
-    letter-spacing:.25em;
-    text-transform:uppercase;
-    font-size:.68rem;
-    color:var(--gold-soft);
-  }
-
-  .timeline-item h3{
-    font-family:'Playfair Display',serif;
-    font-size:1.7rem;
-    margin:9px 0 8px;
-    color:var(--ivory);
-  }
-
-  .timeline-item p{
-    color:var(--muted);
-    line-height:1.85;
-  }
-
-  /* Venue */
-  .venue-box{
-    max-width:840px;
-    margin:45px auto 0;
-    padding:50px 35px;
-    border:1px solid rgba(211,175,109,.25);
-    border-radius:28px;
-    background:linear-gradient(160deg,rgba(255,255,255,.05),rgba(255,255,255,.01));
-    backdrop-filter:blur(8px);
-  }
-
-  .venue-box h3{
-    font-family:'Great Vibes',cursive;
-    font-size:2.8rem;
-    color:var(--gold);
-  }
-
-  .venue-box p{
-    margin-top:16px;
-    line-height:1.95;
-    color:var(--muted);
-  }
-
-  .btn{
-    display:inline-block;
-    margin-top:32px;
-    padding:18px 46px;
-    border-radius:999px;
-    background:linear-gradient(120deg,#9a7638,#d3af6d);
-    color:#191207;
-    text-decoration:none;
-    font-family:'Poppins',sans-serif;
-    font-weight:500;
-    letter-spacing:.2em;
-    text-transform:uppercase;
-    font-size:.72rem;
-    box-shadow:0 18px 40px rgba(211,175,109,.22);
-    transition:.35s;
-  }
-
-  .btn:hover{
-    transform:translateY(-4px);
-    box-shadow:0 25px 55px rgba(211,175,109,.35);
-  }
-
-  /* Contact */
-  .contacts{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:16px;
-    margin-top:35px;
-  }
-
-  .contact-pill{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
-    padding:15px 28px;
-    border:1px solid rgba(211,175,109,.45);
-    border-radius:999px;
-    color:var(--gold-soft);
-    text-decoration:none;
-    font-size:1rem;
-    transition:.35s;
-  }
-
-  .contact-pill:hover{
-    background:rgba(211,175,109,.12);
-    transform:translateY(-3px);
-  }
-
-  /* Footer */
-  footer{
-    position:relative;
-    z-index:3;
-    padding:110px 24px 90px;
-    text-align:center;
-    background:linear-gradient(180deg,transparent,rgba(0,0,0,.55));
-  }
-
-  footer h2{
-    font-size:clamp(3rem,9vw,5rem);
-  }
-
-  footer p{
-    max-width:640px;
-    margin:0 auto;
-    line-height:2;
-    color:var(--muted);
-  }
-
-  /* Music button */
-  .music-btn{
-    position:fixed;
-    right:22px;
-    bottom:22px;
-    z-index:100;
-    width:60px;
-    height:60px;
-    border:none;
-    border-radius:50%;
-    background:linear-gradient(120deg,#9a7638,#d3af6d);
-    color:#191207;
-    font-size:23px;
-    cursor:pointer;
-    box-shadow:0 16px 38px rgba(0,0,0,.35);
-  }
-
-  .music-btn.playing{
-    animation:spin 4s linear infinite;
-  }
-
-  @keyframes spin{
-    to{
-      transform:rotate(360deg);
-    }
-  }
-
-  @media(max-width:600px){
-    section{
-      padding:90px 18px;
-    }
-
-    .hero-inner{
-      padding:55px 20px;
-    }
-
-    .gate-box{
-      padding:40px 22px;
-    }
-
-    .venue-box{
-      padding:38px 22px;
-    }
-
-    .couple-card{
-      padding:32px 24px;
-    }
-  }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Falak weds Asif — Nikah Invitation</title>
+  <meta name="description" content="You are warmly invited to the Nikah of Falak Naaz and Mohammed Asif on Friday, 20 November 2026.">
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+  <a class="skip-link" href="#main">Skip to invitation</a>
 
-<!-- Entrance -->
-<div id="gate">
-  <div class="gate-box">
-    <p class="bismillah">Bismillahir Rahmanir Raheem</p>
-    <p class="gate-sub">You are cordially invited</p>
-    <h1 class="gate-title">Falak Weds Asif</h1>
-    <p class="gate-names">Falak Naaz <span class="amp">&</span> Mohammed Asif</p>
-    <p class="gate-date">Friday, 20 November 2026</p>
-    <button class="enter-btn" onclick="openInvitation()">Tap to Enter</button>
-  </div>
-</div>
+  <!-- Opening cover -->
+  <section class="cover" id="cover" aria-labelledby="cover-title">
+    <div class="cover__frame" aria-hidden="true"></div>
 
-<!-- Background -->
-<div class="bg-layer bg-gradient"></div>
-<div class="bg-layer vignette"></div>
+    <div class="cover__inner">
+      <p class="cover__kicker">With the blessings of Almighty Allah</p>
+      <h1 class="cover__title" id="cover-title">Falak <span class="amp">&amp;</span> Asif</h1>
+      <p class="cover__date">Friday, 20 November 2026</p>
 
-<!-- Hero -->
-<section class="hero">
-  <div class="hero-ring"></div>
-  <div class="hero-ring"></div>
-  <div class="hero-inner">
-    <p class="eyebrow">Nikah Ceremony</p>
-    <h1>Falak Weds Asif</h1>
-    <p class="hero-names">Falak Naaz <span class="amp">&</span> Mohammed Asif</p>
-    <p class="hero-date">Friday . 20 . November . 2026</p>
-    <p class="hero-text">
-      With the blessings of Almighty Allah, Mr. Mushtaq Ahmed joyfully invites you,
-      along with your family and friends, to grace the Nikah ceremony of his beloved daughter
-      <strong>Falak Naaz</strong> with <strong>Mohammed Asif</strong>.
-    </p>
-    <p class="host">Hosted by <strong>Mr. Mushtaq Ahmed</strong></p>
-    <p class="scroll">Scroll to begin</p>
-  </div>
-</section>
+      <button class="button button--gold" id="openButton" type="button">
+        Open invitation
+      </button>
 
-<!-- Countdown -->
-<section>
-  <div class="reveal">
-    <p class="kicker">Save the Date</p>
-    <h2>Counting Every Moment</h2>
-    <div class="divider"></div>
-    <p class="lead">
-      Join us as two hearts unite in faith, love, and a lifetime of beautiful memories.
-    </p>
-    <div class="countdown">
-      <div class="time-box"><span id="days">00</span><small>Days</small></div>
-      <div class="time-box"><span id="hours">00</span><small>Hours</small></div>
-      <div class="time-box"><span id="minutes">00</span><small>Minutes</small></div>
-      <div class="time-box"><span id="seconds">00</span><small>Seconds</small></div>
+      <p class="cover__note">Nikah &amp; Dinner · Azizia Convention Hall, Bengaluru</p>
     </div>
-  </div>
-</section>
 
-<!-- Couple -->
-<section>
-  <div class="reveal">
-    <p class="kicker">The Blessed Couple</p>
-    <h2>A Union of Two Hearts</h2>
-    <div class="divider"></div>
-    <p class="lead">
-      With gratitude to Allah and the love of their families, Falak and Asif
-      begin a new chapter together—filled with faith, respect, compassion, and endless blessings.
-    </p>
-    <div class="couple">
-      <div class="couple-card">
-        <p class="role">The Bride</p>
-        <h3>Falak Naaz</h3>
-        <p>D/o Mr. Mushtaq Ahmed<br>& Late Mohammed Haneef</p>
+    <div class="cover__media" id="coverMedia" hidden>
+      <video id="openingVideo" playsinline preload="metadata" aria-label="Opening invitation animation"></video>
+      <button class="button button--ghost" id="skipVideo" type="button">Skip</button>
+    </div>
+  </section>
+
+  <main id="main" hidden>
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="shell">
+        <p class="eyebrow">Nikah Invitation</p>
+        <h2 class="hero__names" id="hero-title">Falak <span class="amp">&amp;</span> Asif</h2>
+
+        <div class="hero__divider" aria-hidden="true">
+          <span></span><span class="hero__diamond"></span><span></span>
+        </div>
+
+        <p class="hero__date">Friday, 20 November 2026</p>
+        <p class="hero__time">After Namaz-e-Maghrib</p>
+
+        <a class="scroll-cue" href="#letter">
+          <span aria-hidden="true"></span>
+          Scroll to read
+        </a>
       </div>
-      <div class="couple-card">
-        <p class="role">The Groom</p>
-        <h3>Mohammed Asif</h3>
-        <p>S/o Mr. Mohammed Kasim<br>& Late Ubaidur Rahman</p>
+    </section>
+
+    <!-- Letter -->
+    <section class="section" id="letter" aria-labelledby="letter-title">
+      <div class="shell">
+        <div class="paper letter reveal">
+          <div class="paper__edge" aria-hidden="true"></div>
+          <h2 class="section__title" id="letter-title">A Personal Invitation</h2>
+
+          <p class="letter__greeting" id="letterGreeting"></p>
+          <div class="letter__body" id="letterBody"></div>
+          <p class="letter__signature" id="letterSignature"></p>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- Schedule -->
-<section>
-  <div class="reveal">
-    <p class="kicker">Wedding Day</p>
-    <h2>Order of Celebrations</h2>
-    <div class="divider"></div>
-    <div class="timeline">
-      <div class="timeline-item">
-        <p class="timeline-time">After Namaz-e-Maghrib</p>
-        <h3>Arrival of Baraat</h3>
-        <p>The Baraat will be warmly welcomed by family and guests at Azizia Convention Hall.</p>
+    <!-- Date -->
+    <section class="section section--velvet" id="date" aria-labelledby="date-title">
+      <div class="shell">
+        <div class="date-grid">
+          <div class="calendar-card reveal" aria-labelledby="calendar-heading">
+            <h3 class="card-title" id="calendar-heading">Save the Date</h3>
+            <p class="calendar-month" id="calendarMonth"></p>
+
+            <table class="calendar" aria-describedby="calendar-heading">
+              <thead>
+                <tr>
+                  <th scope="col"><abbr title="Sunday">S</abbr></th>
+                  <th scope="col"><abbr title="Monday">M</abbr></th>
+                  <th scope="col"><abbr title="Tuesday">T</abbr></th>
+                  <th scope="col"><abbr title="Wednesday">W</abbr></th>
+                  <th scope="col"><abbr title="Thursday">T</abbr></th>
+                  <th scope="col"><abbr title="Friday">F</abbr></th>
+                  <th scope="col"><abbr title="Saturday">S</abbr></th>
+                </tr>
+              </thead>
+              <tbody id="calendarBody"></tbody>
+            </table>
+
+            <a class="button button--gold" id="addToCalendar" href="#" download="falak-asif-nikah.ics">
+              Add to calendar
+            </a>
+          </div>
+
+          <div class="date-details reveal">
+            <p class="eyebrow">Friday, 20 November 2026</p>
+            <h2 class="section__title" id="date-title">A Blessed Union</h2>
+            <p class="date-time" id="eventTime"></p>
+
+            <div class="countdown" id="countdown" role="timer" aria-live="polite" aria-atomic="true">
+              <div class="countdown__unit"><span id="cdDays">—</span><small>Days</small></div>
+              <div class="countdown__unit"><span id="cdHours">—</span><small>Hours</small></div>
+              <div class="countdown__unit"><span id="cdMinutes">—</span><small>Minutes</small></div>
+            </div>
+
+            <p class="event-status" id="eventStatus" hidden></p>
+          </div>
+        </div>
       </div>
-      <div class="timeline-item">
-        <p class="timeline-time">After Namaz-e-Maghrib</p>
-        <h3>Nikah Ceremony</h3>
-        <p>A sacred and blessed ceremony as Falak and Asif begin their journey as husband and wife.</p>
+    </section>
+
+    <!-- Schedule -->
+    <section class="section" id="schedule" aria-labelledby="schedule-title" hidden>
+      <div class="shell">
+        <div class="timeline reveal">
+          <h2 class="section__title" id="schedule-title"></h2>
+          <ol class="timeline__list" id="scheduleList"></ol>
+        </div>
       </div>
-      <div class="timeline-item">
-        <p class="timeline-time">After Nikah</p>
-        <h3>Dinner & Celebration</h3>
-        <p>Please join the family for dinner, duas, photographs, and a memorable evening of celebration.</p>
+    </section>
+
+    <!-- Venue -->
+    <section class="section section--velvet" id="venue" aria-labelledby="venue-title" hidden>
+      <div class="shell">
+        <div class="venue-card reveal">
+          <p class="eyebrow">The Venue</p>
+          <h2 class="section__title" id="venue-title"></h2>
+          <p class="venue-address" id="venueAddress"></p>
+          <p class="venue-additional" id="venueAdditional"></p>
+          <a class="button button--outline" id="venueMapLink" href="#" target="_blank" rel="noopener">
+            Open map
+          </a>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- Venue -->
-<section>
-  <div class="reveal">
-    <p class="kicker">The Venue</p>
-    <h2>Where We Gather</h2>
-    <div class="divider"></div>
-    <div class="venue-box">
-      <h3>Azizia Convention Hall</h3>
-      <p>
-        Padrayanapura,<br>
-        Bangalore – 26
-      </p>
-      <p>
-        <strong>Near:</strong> Amir Kaleemi Masjid,<br>
-        Jabbar Bhai ki Building,<br>
-        Old Guddadahalli, Bangalore – 26
-      </p>
-      <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Azizia+Convention+Hall+Padrayanapura+Bangalore+26" target="_blank">
-        View Location
-      </a>
-    </div>
-  </div>
-</section>
+    <!-- Closing -->
+    <section class="closing" aria-labelledby="closing-title">
+      <div class="shell">
+        <div class="closing__card reveal">
+          <p class="eyebrow">With gratitude</p>
+          <h2 class="closing__title" id="closing-title">Falak &amp; Asif</h2>
+          <p class="closing__text" id="closingText"></p>
+          <p class="closing__date" id="closingDate"></p>
+          <p class="closing__contacts" id="closingContacts"></p>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<!-- Contact -->
-<section>
-  <div class="reveal">
-    <p class="kicker">For Assistance</p>
-    <h2>Contact Us</h2>
-    <div class="divider"></div>
-    <p class="lead">
-      For directions, assistance, or further information, please feel free to contact:
-    </p>
-    <div class="contacts">
-      <a class="contact-pill" href="tel:+918098832802">📞 80988 32802</a>
-      <a class="contact-pill" href="tel:+918870671114">📞 88706 71114</a>
-    </div>
-  </div>
-</section>
-
-<!-- Guest notes -->
-<section>
-  <div class="reveal">
-    <p class="kicker">Kindly Note</p>
-    <h2>With Love & Duas</h2>
-    <div class="divider"></div>
-    <div class="venue-box">
-      <h3>Dress Code</h3>
-      <p>We kindly request elegant traditional or formal attire. Please avoid deep red and maroon shades.</p>
-
-      <h3 style="margin-top:34px">Gift Preference</h3>
-      <p>Your presence, blessings, and duas are the greatest gift. Kindly, no boxed gifts please.</p>
-
-      <h3 style="margin-top:34px">Travel & Stay</h3>
-      <p>For guests travelling from outside Bangalore, nearby accommodation recommendations and directions are available on request.</p>
-    </div>
-  </div>
-</section>
-
-<!-- RSVP -->
-<section>
-  <div class="reveal">
-    <p class="kicker">RSVP</p>
-    <h2>Confirm Your Attendance</h2>
-    <div class="divider"></div>
-    <p class="lead">
-      Your presence would mean the world to Falak and Asif.
-      Kindly confirm your attendance at your earliest convenience.
-    </p>
-    <a class="btn" href="https://wa.me/918098832802?text=Assalamu%20Alaikum%2C%20I%20would%20like%20to%20confirm%20my%20attendance%20for%20Falak%20and%20Asif%E2%80%99s%20Nikah.">
-      RSVP on WhatsApp
-    </a>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer>
-  <p class="kicker" style="color:var(--gold-soft)">With Love & Duas</p>
-  <h2>Falak Naaz & Mohammed Asif</h2>
-  <p>
-    May Allah bless this union with love, mercy, happiness, understanding,
-    and a lifetime of beautiful memories.
-  </p>
-</footer>
-
-<!-- Background music -->
-<audio id="bgMusic" loop preload="auto">
-  <source src="wedding-background-music.mp3" type="audio/mpeg">
-</audio>
-
-<button class="music-btn" id="musicBtn" title="Play or pause music">♪</button>
-
-<script>
-  /* Falling petals */
-  const petalColors=["#e8b4b8","#f3c6c9","#f7d9b0","#fff8ea"];
-
-  for(let i=0;i<42;i++){
-    const p=document.createElement("div");
-    p.className="petal";
-    const size=8+Math.random()*20;
-
-    p.style.width=size+"px";
-    p.style.height=size*.68+"px";
-    p.style.left=Math.random()*100+"vw";
-    p.style.background=petalColors[Math.floor(Math.random()*petalColors.length)];
-    p.style.borderRadius="60% 40% 55% 45%";
-    p.style.setProperty("--drift",(Math.random()*240-120)+"px");
-    p.style.animationDuration=(10+Math.random()*13)+"s";
-    p.style.animationDelay=(-Math.random()*20)+"s";
-
-    document.body.appendChild(p);
-  }
-
-  /* Golden sparkles */
-  for(let i=0;i<30;i++){
-    const s=document.createElement("div");
-    s.className="spark";
-    s.style.left=Math.random()*100+"vw";
-    s.style.top=Math.random()*100+"vh";
-    s.style.animationDelay=(Math.random()*5)+"s";
-    document.body.appendChild(s);
-  }
-
-  /* Scroll reveal */
-  const observer=new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        entry.target.classList.add("visible");
-      }
-    });
-  },{threshold:.15});
-
-  document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
-
-  /* Countdown */
-  const weddingDate=new Date("2026-11-20T18:00:00+05:30").getTime();
-
-  function updateCountdown(){
-    const diff=weddingDate-Date.now();
-
-    if(diff<=0){
-      document.querySelector(".countdown").innerHTML=
-      "<h3 style='font-family:Great Vibes,cursive;font-size:3rem;color:#d3af6d'>The celebration has begun!</h3>";
-      return;
-    }
-
-    const days=Math.floor(diff/86400000);
-    const hours=Math.floor((diff%86400000)/3600000);
-    const minutes=Math.floor((diff%3600000)/60000);
-    const seconds=Math.floor((diff%60000)/1000);
-
-    document.getElementById("days").textContent=String(days).padStart(2,"0");
-    document.getElementById("hours").textContent=String(hours).padStart(2,"0");
-    document.getElementById("minutes").textContent=String(minutes).padStart(2,"0");
-    document.getElementById("seconds").textContent=String(seconds).padStart(2,"0");
-  }
-
-  setInterval(updateCountdown,1000);
-  updateCountdown();
-
-  /* Background music */
-  const music=document.getElementById("bgMusic");
-  const musicBtn=document.getElementById("musicBtn");
-  let playing=false;
-
-  music.volume=0.35;
-
-  async function startMusic(){
-    try{
-      await music.play();
-      playing=true;
-      musicBtn.textContent="❚❚";
-      musicBtn.classList.add("playing");
-    }catch(error){
-      console.log("Music could not start:",error);
-      playing=false;
-      musicBtn.textContent="♪";
-      musicBtn.classList.remove("playing");
-    }
-  }
-
-  function toggleMusic(){
-    if(music.paused){
-      startMusic();
-    }else{
-      music.pause();
-      playing=false;
-      musicBtn.textContent="♪";
-      musicBtn.classList.remove("playing");
-    }
-  }
-
-  /* Start music from the entrance tap */
-  document.getElementById("gate").addEventListener("click",function(){
-    document.getElementById("gate").classList.add("hidden");
-    startMusic();
-  });
-
-  /* Floating music button */
-  musicBtn.addEventListener("click",function(event){
-    event.stopPropagation();
-    toggleMusic();
-  });
-
-  /* Extra mobile fallback */
-  window.addEventListener("touchstart",function(){
-    if(music.paused){
-      startMusic();
-    }
-  },{once:true});
-
-  /* Entrance */
-  function openInvitation(){
-    document.getElementById("gate").classList.add("hidden");
-    startMusic();
-  }
-</script>
-
+  <script src="config.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
